@@ -18,6 +18,7 @@ public abstract class AppBarStateChangeListener implements AppBarLayout.OnOffset
 
     @Override
     public final void onOffsetChanged(AppBarLayout appBarLayout, int i) {
+
         if (i == 0) {
             if (mCurrentState != State.EXPANDED) {
                 onStateChanged(appBarLayout, State.EXPANDED);

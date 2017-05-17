@@ -4,4 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="circle_size">46dp</dimen>
     <dimen name="detail_backdrop_height">256dp</dimen>
+    <dimen name="tabsHeight">48dp</dimen>
 </resources>

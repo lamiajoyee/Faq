@@ -7,7 +7,7 @@ android:layout_height="match_parent"
 android:fitsSystemWindows="true">
 
 <android.support.design.widget.AppBarLayout
-    android:id="@+id/appbar"
+    android:id="@+id/app_bar"
     android:layout_width="match_parent"
     android:layout_height="@dimen/detail_backdrop_height"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
@@ -60,9 +60,10 @@ android:fitsSystemWindows="true">
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_anchor="@id/appbar"
+        app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|right|end"
         android:id="@+id/fab_container"
+        app:layout_behavior=".ScrollingBehavior"
         >
         <View
             android:id="@+id/target"
@@ -109,8 +110,6 @@ android:fitsSystemWindows="true">
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/circle_drawable_dark"/>
-
-
 
         </rjsv.floatingmenu.floatingmenubutton.FloatingMenuButton>
 
