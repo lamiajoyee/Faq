@@ -1,16 +1,20 @@
 package com.example.lamia.faq;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
-/**
- * Created by Lamia on 5/17/2017.
- */
+import java.util.List;
+
+import rjsv.floatingmenu.floatingmenubutton.FloatingMenuButton;
+import rjsv.floatingmenu.floatingmenubutton.subbutton.SubButton;
 
 public class ScrollingBehavior extends CoordinatorLayout.Behavior<RelativeLayout> {
     private int toolbarHeight;
@@ -27,12 +31,19 @@ public class ScrollingBehavior extends CoordinatorLayout.Behavior<RelativeLayout
 
     @Override
     public boolean onDependentViewChanged(CoordinatorLayout parent, RelativeLayout fab, View dependency) {
+
+
         if (dependency instanceof AppBarLayout) {
-            CoordinatorLayout.LayoutParams lp = (CoordinatorLayout.LayoutParams) fab.getLayoutParams();
-            int fabBottomMargin = lp.bottomMargin;
-            int distanceToScroll = fab.getHeight() + fabBottomMargin;
-            float ratio = (float)dependency.getY()/(float)toolbarHeight;
-            fab.setTranslationY(-distanceToScroll * ratio);
+
+            RelativeLayout img_btn = (RelativeLayout) fab.getChildAt(1);
+
+            /*if(fmb.isMenuOpen()){
+                List<SubButton> sbs = fmb.getSubMenuButtons();
+                for (SubButton sb:sbs) {
+                    sb.setY(-dependency.getScrollY());
+                }
+            }*/
+            fab.setTranslationY(-dependency.getScrollY());
         }
         return true;
     }
