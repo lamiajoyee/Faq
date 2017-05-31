@@ -62,7 +62,7 @@ android:fitsSystemWindows="true">
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|right|end"
         android:id="@+id/fab_container"
-        app:layout_behavior=".ScrollingBehavior"
+
         >
         <View
             android:id="@+id/target"

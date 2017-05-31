@@ -13,9 +13,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
-import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
-import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
+
 
 import rjsv.floatingmenu.floatingmenubutton.FloatingMenuButton;
 
@@ -30,7 +28,8 @@ public class MainActivity extends AppCompatActivity{
 
     RelativeLayout imgButton;
 
-    FloatingActionButton defaultFAB;
+    //sp
+    //FloatingActionButton defaultFAB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,19 +38,22 @@ public class MainActivity extends AppCompatActivity{
 
         InitializeControls();
 
-        SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
+        //sp
+        //SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
 
         ImageView itemIcon1 = new ImageView(this);
         ImageView itemIcon2 = new ImageView(this);
         ImageView itemIcon3 = new ImageView(this);
         ImageView itemIcon4 = new ImageView(this);
 
-        SubActionButton button1 = itemBuilder.setContentView(itemIcon1).build();
-        SubActionButton button2 = itemBuilder.setContentView(itemIcon2).build();
-        SubActionButton button3 = itemBuilder.setContentView(itemIcon3).build();
-        SubActionButton button4 = itemBuilder.setContentView(itemIcon4).build();
+        //sp
+        //SubActionButton button1 = itemBuilder.setContentView(itemIcon1).build();
+        //SubActionButton button2 = itemBuilder.setContentView(itemIcon2).build();
+        //SubActionButton button3 = itemBuilder.setContentView(itemIcon3).build();
+        //SubActionButton button4 = itemBuilder.setContentView(itemIcon4).build();
 
-        FloatingActionMenu actionMenu = new FloatingActionMenu.Builder(this)
+        //sp
+        /*FloatingActionMenu actionMenu = new FloatingActionMenu.Builder(this)
                 .addSubActionView(button1)
                 .addSubActionView(button2)
                 .addSubActionView(button3)
@@ -60,9 +62,10 @@ public class MainActivity extends AppCompatActivity{
                 .setEndAngle(270)
                 .setRadius(100)
                 .attachTo(imgButton)
-                .build();
+                .build();*/
 
-        actionMenu.setStateChangeListener(new FloatingActionMenu.MenuStateChangeListener() {
+        //sp
+        /*actionMenu.setStateChangeListener(new FloatingActionMenu.MenuStateChangeListener() {
             @Override
             public void onMenuOpened(FloatingActionMenu menu) {
                 CloseEllipse();
@@ -72,7 +75,7 @@ public class MainActivity extends AppCompatActivity{
             public void onMenuClosed(FloatingActionMenu menu) {
                 OpenEllipse();
             }
-        });
+        });*/
 
         // custom onClickListener to handle ellipse open/close animation
         /*   floatingButton.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +93,7 @@ public class MainActivity extends AppCompatActivity{
         });*/
 
         // custom listener to handle FAB + ellipse expand/collapse when scrolling
-     /*   appBar.addOnOffsetChangedListener(new AppBarStateChangeListener() {
+        appBar.addOnOffsetChangedListener(new AppBarStateChangeListener() {
             @Override
             public void onStateChanged(AppBarLayout appBarLayout, State state) {
                 switch (state.name()){
@@ -103,13 +106,13 @@ public class MainActivity extends AppCompatActivity{
                         break;
 
                     case "IDLE":
-                        floatingButton.closeMenu();
+//                        floatingButton.closeMenu();
                         OpenEllipse();
                         //CollapseFab();
                         break;
                 }
             }
-        }); */
+        });
 
     }
 
@@ -127,16 +130,16 @@ public class MainActivity extends AppCompatActivity{
      */
     // FAB
     private void ExpandFab() {
-        Animator animExp = ViewAnimationUtils.createCircularReveal(floatingButton, floatingButton.getWidth()/2, floatingButton.getWidth()/2, 0, floatingButton.getWidth()/2);
+        Animator animExp = ViewAnimationUtils.createCircularReveal(imgButton, imgButton.getWidth()/2, imgButton.getWidth()/2, 0, imgButton.getWidth()/2);
         animExp.setDuration(800);
-        fabContainer.setVisibility(View.VISIBLE);
+        imgButton.setVisibility(View.VISIBLE);
         animExp.start();
     }
     private void CollapseFab() {
-        Animator animColl = ViewAnimationUtils.createCircularReveal(floatingButton, floatingButton.getWidth()/2, floatingButton.getWidth()/2, floatingButton.getWidth()/2, 0);
+        Animator animColl = ViewAnimationUtils.createCircularReveal(imgButton, imgButton.getWidth()/2, imgButton.getWidth()/2, imgButton.getWidth()/2, 0);
         animColl.setDuration(800);
         animColl.start();
-        fabContainer.setVisibility(View.INVISIBLE);
+        imgButton.setVisibility(View.INVISIBLE);
     }
 
     // ellipse surrounding the FAB

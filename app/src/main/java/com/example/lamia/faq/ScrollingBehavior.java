@@ -44,6 +44,7 @@ public class ScrollingBehavior extends CoordinatorLayout.Behavior<RelativeLayout
                 }
             }*/
             fab.setTranslationY(-dependency.getScrollY());
+
         }
         return true;
     }
